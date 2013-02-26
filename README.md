@@ -6,7 +6,7 @@ CakeStrap is a Twitter Bootstrap(2.3) theme for cakePHP (2.3)
 
 <ol>
   <li>Download the .zip file</li>
-  <li>The files have been placed in the folders that will already be in your cakePHP app, simply follow the rabbit hole and place the folders/files in their correct locations
+  <li>The files have been placed in the folders that will already be in your cakePHP app, simply follow the rabbit hole and place the folders/files in their correct locations:
   <ul>
     <li>The "Templates" folder goes in app/Console</li>
     <li>The "Themed" folder goes in app/View</li>
