@@ -1,0 +1,31 @@
+#header{margin-top:20px;}
+#page-container{margin-bottom:20px;}
+
+.bs-docs-sidenav {
+	padding: 0;
+	background-color: #fff;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+	box-shadow: 0 1px 4px rgba(0,0,0,.065);
+	margin-bottom:20px;
+}
+
+.bs-docs-sidenav > li > a {
+	display: block;
+	padding: 8px 14px;
+	border: 1px solid #e5e5e5;
+	margin: 0 0 -1px;
+}
+.bs-docs-sidenav > li:first-child > a {
+	-webkit-border-radius: 6px 6px 0 0;
+	-moz-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
+}
+.bs-docs-sidenav > li:last-child > a {
+	-webkit-border-radius: 0 0 6px 6px;
+	-moz-border-radius: 0 0 6px 6px;
+	border-radius: 0 0 6px 6px;
+}
