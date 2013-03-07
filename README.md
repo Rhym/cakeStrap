@@ -1,6 +1,6 @@
 <h2>Cakestrap v.1.1</h2>
 
-CakeStrap is a Twitter Bootstrap(2.3) theme for cakePHP (2.3)
+CakeStrap is a Twitter Bootstrap(2.3+) theme for cakePHP (2.3+)
 
 <h3>Quick Start</h3>
 
