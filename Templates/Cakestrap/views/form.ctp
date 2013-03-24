@@ -50,26 +50,28 @@
 
 		<div class="<?php echo $pluralVar; ?> form">
 		
-			<?php echo "<?php echo \$this->Form->create('{$modelClass}'); ?>\n"; ?>
+			<?php echo "<?php echo \$this->Form->create('{$modelClass}', array('inputDefaults' => array('label' => false), 'class' => 'form form-horizontal')); ?>\n"; ?>
 				<fieldset>
 					<h2><?php printf("<?php echo __('%s %s'); ?>", Inflector::humanize($action), $singularHumanName); ?></h2>
 			<?php
-					echo "\t<?php\n";
-					foreach ($fields as $field) {
-						if (strpos($action, 'add') !== false && $field == $primaryKey) {
-							continue;
-						} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
-							echo "\t\techo \"<div class='control-group'>\";\n";
-							echo "\t\techo \$this->Form->input('{$field}', array('class' => 'span12'));\n";
-							echo "\t\techo \"</div>\";\n";
-						}
+				foreach ($fields as $field) {
+					if (strpos($action, 'add') !== false && $field == $primaryKey) {
+						continue;
+					} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
+						echo "<div class=\"control-group\">\n";
+						echo "\t<?php echo \$this->Form->label('{$field}', '{$field}', array('class' => 'control-label'));?>\n";
+						echo "\t<div class=\"controls\">\n";
+						echo "\t\t<?php echo \$this->Form->input('{$field}', array('class' => 'span12')); ?>\n";
+						echo "\t</div><!-- .controls -->\n";
+						echo "</div><!-- .control-group -->\n";
+						echo "\n";
 					}
-					if (!empty($associations['hasAndBelongsToMany'])) {
-						foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {
-							echo "\t\techo \$this->Form->input('{$assocName}');\n";
-						}
+				}
+				if (!empty($associations['hasAndBelongsToMany'])) {
+					foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {
+						echo "\t\t<php echo \$this->Form->input('{$assocName}');?>\n";
 					}
-					echo "\t?>\n";
+				}
 			?>
 				</fieldset>
 			<?php
