@@ -1,4 +1,4 @@
-<h2>Cakestrap v.1.1</h2>
+<h2>Cakestrap v.1.2</h2>
 
 CakeStrap is a Twitter Bootstrap(2.3+) theme for cakePHP (2.3+)
 
@@ -23,4 +23,6 @@ CakeStrap is a Twitter Bootstrap(2.3+) theme for cakePHP (2.3+)
   <dd>Initial release</dd>
   <dt>v.1.1</dt>
   <dd>Update Twitter Bootstrap to version 2.3.1</dd>
+  <dt>v.1.2</dt>
+  <dd>Updated form generation to support optional layouts i.e form-vertical (Forms are now horizontal by default).</dd>
 </dl>
