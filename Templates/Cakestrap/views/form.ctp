@@ -69,7 +69,7 @@
 				}
 				if (!empty($associations['hasAndBelongsToMany'])) {
 					foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {
-						echo "\t\t<php echo \$this->Form->input('{$assocName}');?>\n";
+						echo "\t\t<?php echo \$this->Form->input('{$assocName}');?>\n";
 					}
 				}
 			?>
