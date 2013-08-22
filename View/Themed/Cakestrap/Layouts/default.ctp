@@ -19,7 +19,7 @@
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <?php echo $this->Html->docType('html5'); ?> 
-
+<html>
 	<head>
 		<?php echo $this->Html->charset(); ?>
 		<title>
