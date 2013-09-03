@@ -32,12 +32,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			echo $this->fetch('meta');
 
 			echo $this->Html->css('bootstrap.min');
-			echo $this->Html->css('bootstrap-responsive.min');
+			// Uncomment this to enable the bootstrap gradient theme (Flat is way better though).
+			//echo $this->Html->css('bootstrap-theme.min');
 			echo $this->Html->css('core');
 
 			echo $this->fetch('css');
 			
-			echo $this->Html->script('libs/jquery');
+			echo $this->Html->script('libs/jquery-1.10.2.min');
 			echo $this->Html->script('libs/bootstrap.min');
 			
 			echo $this->fetch('script');
@@ -50,28 +51,26 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		
 			<div id="header" class="container">
 				<?php echo $this->element('menu/top_menu'); ?>
-			</div><!-- #header .container -->
+			</div><!-- /#header .container -->
 			
 			<div id="content" class="container">
-
 				<?php echo $this->Session->flash(); ?>
-
 				<?php echo $this->fetch('content'); ?>
-			</div><!-- #header .container -->
+			</div><!-- /#header .container -->
 			
 			<div id="footer" class="container">
 				<?php //Silence is golden ?>
-			</div><!-- #footer .container -->
+			</div><!-- /#footer .container -->
 			
-		</div><!-- #main-container -->
+		</div><!-- /#main-container -->
 		
 		<div class="container">
-			<div class="well">
+			<div class="well well-sm">
 				<small>
 					<?php echo $this->element('sql_dump'); ?>
 				</small>
-			</div>
-		</div><!-- .container -->
+			</div><!-- /.well well-sm -->
+		</div><!-- /.container -->
 		
 	</body>
 
