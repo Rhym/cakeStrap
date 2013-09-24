@@ -91,6 +91,7 @@
  * @return void
  */
 	public function <?php echo $admin; ?>edit($id = null) {
+        $this-><?php echo $currentModelName; ?>->id = $id;
 		if (!$this-><?php echo $currentModelName; ?>->exists($id)) {
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
