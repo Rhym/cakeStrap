@@ -1,7 +1,7 @@
 Cakestrap v.1.3
 ===============
 
-CakeStrap is awesome theme based on [Twitter Bootstrap 3.0+](http://getbootstrap.com/) for [CakePHP 2.4+](http://www.cakephp.org)
+CakeStrap is based on [Twitter Bootstrap 3.0+](http://getbootstrap.com/) for [CakePHP 2.4+](http://www.cakephp.org)
 
 Quick Start
 -----------
