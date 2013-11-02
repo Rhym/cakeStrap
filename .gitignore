@@ -2,7 +2,6 @@
 *
 # Except these
 !.gitattributes
-!.gitignore
 !README.md
 !app/View/Themed/Cakestrap/
 !app/Console/Templates/Cakestrap
