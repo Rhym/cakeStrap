@@ -1,7 +1,12 @@
-Cakestrap v.1.3
+Cakestrap v.1.4
 ===============
 
 CakeStrap is based on [Twitter Bootstrap 3.0+](http://getbootstrap.com/) for [CakePHP 2.4+](http://www.cakephp.org)
+
+Cakestrap also uses the following libraries:
+
+* [Font Awesome](http://fontawesome.io/)
+* [Bootstrap-SASS](https://github.com/thomas-mcdonald/bootstrap-sass)
 
 Quick Start
 -----------
@@ -19,6 +24,8 @@ public $theme = "Cakestrap";
 Changelog
 ---------
 
+* v.1.4
+	* Added support for Font-awesome, and SASS
 * v.1.3 
 	* Updated to Twitter Bootstrap 3.0, and CakePHP 2.4
 * v.1.2 
