@@ -12,7 +12,7 @@ Quick Start
 -----------
 
 * Download the .zip file
-* Extract the files into your CakePHP app folder
+* Extract the files into your CakePHP folder
 * To enable your theme add the following to your "app/Controller/AppController.php" class:
 
 ```php 
