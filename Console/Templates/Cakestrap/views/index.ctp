@@ -25,18 +25,18 @@
 		
 			<ul class="list-group">
 				<li class="list-group-item"><?php echo "<?php echo \$this->Html->link(__('New " . $singularHumanName . "'), array('action' => 'add'), array('class' => '')); ?>"; ?></li>
-				<?php
-					$done = array();
-					foreach ($associations as $type => $data) {
-						foreach ($data as $alias => $details) {
-							if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
-								echo "<li class=\"list-group-item\"><?php echo \$this->Html->link(__('List " . Inflector::humanize($details['controller']) . "'), array('controller' => '{$details['controller']}', 'action' => 'index'), array('class' => '')); ?></li> \n";
-								echo "\t\t\t\t<li class=\"list-group-item\"><?php echo \$this->Html->link(__('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => '')); ?></li> \n";
-								$done[] = $details['controller'];
-							}
-						}
-					}
-				?>
+<?php
+	$done = array();
+	foreach ($associations as $type => $data) {
+		foreach ($data as $alias => $details) {
+			if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
+				echo "\t\t\t\t<li class=\"list-group-item\"><?php echo \$this->Html->link(__('List " . Inflector::humanize($details['controller']) . "'), array('controller' => '{$details['controller']}', 'action' => 'index'), array('class' => '')); ?></li> \n";
+				echo "\t\t\t\t<li class=\"list-group-item\"><?php echo \$this->Html->link(__('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => '')); ?></li> \n";
+				$done[] = $details['controller'];
+			}
+		}
+	}
+?>
 			</ul><!-- /.list-group -->
 			
 		</div><!-- /.actions -->
@@ -60,33 +60,34 @@
 						</tr>
 					</thead>
 					<tbody>
-<?php echo "<?php foreach (\${$pluralVar} as \${$singularVar}): ?>\n";
-						echo "\t<tr>\n";
-							foreach ($fields as $field) {
-								$isKey = false;
-								if (!empty($associations['belongsTo'])) {
-									foreach ($associations['belongsTo'] as $alias => $details) {
-										if ($field === $details['foreignKey']) {
-											$isKey = true;
-											echo "\t\t<td>\n\t\t\t<?php echo \$this->Html->link(\${$singularVar}['{$alias}']['{$details['displayField']}'], array('controller' => '{$details['controller']}', 'action' => 'view', \${$singularVar}['{$alias}']['{$details['primaryKey']}'])); ?>\n\t\t</td>\n";
-											break;
-										}
-									}
-								}
-								if ($isKey !== true) {
-									echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
-								}
-							}
+<?php 
+	echo "<?php foreach (\${$pluralVar} as \${$singularVar}): ?>\n";
+	echo "\t<tr>\n";
+	foreach ($fields as $field) {
+		$isKey = false;
+		if (!empty($associations['belongsTo'])) {
+			foreach ($associations['belongsTo'] as $alias => $details) {
+				if ($field === $details['foreignKey']) {
+					$isKey = true;
+					echo "\t\t<td>\n\t\t\t<?php echo \$this->Html->link(\${$singularVar}['{$alias}']['{$details['displayField']}'], array('controller' => '{$details['controller']}', 'action' => 'view', \${$singularVar}['{$alias}']['{$details['primaryKey']}'])); ?>\n\t\t</td>\n";
+					break;
+				}
+			}
+		}
+		if ($isKey !== true) {
+			echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+		}
+	}
 
-							echo "\t\t<td class=\"actions\">\n";
-							echo "\t\t\t<?php echo \$this->Html->link(__('View'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
-							echo "\t\t\t<?php echo \$this->Html->link(__('Edit'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
-							echo "\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
-							echo "\t\t</td>\n";
-						echo "\t</tr>\n";
+	echo "\t\t<td class=\"actions\">\n";
+	echo "\t\t\t<?php echo \$this->Html->link(__('View'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
+	echo "\t\t\t<?php echo \$this->Html->link(__('Edit'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
+	echo "\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
+	echo "\t\t</td>\n";
+	echo "\t</tr>\n";
 
-echo "<?php endforeach; ?>\n";
-						?>
+	echo "<?php endforeach; ?>\n";
+?>
 					</tbody>
 				</table>
 			</div><!-- /.table-responsive -->
